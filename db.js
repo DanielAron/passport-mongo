@@ -1,2 +1,3 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+var db = process.env.MONGO_URL || 'mongodb://localhost/test';
+mongoose.connect(db);
