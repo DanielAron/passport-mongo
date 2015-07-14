@@ -4,7 +4,7 @@ var fonkappSchema = new mongoose.Schema({
     category: String,
     badge: Number,
     user: String,
-    dob: { type: Date, default: Date.now },
+    //dob: { type: Date, default: Date.now },
     isloved: Boolean
 });
 mongoose.model('Fonkapp', fonkappSchema);

@@ -59,7 +59,7 @@ router.route('/')
         var name = req.body.name;
         var category = req.body.category;
         var badge = req.body.badge;
-        var dob = req.body.dob;
+        //var dob = req.body.dob;
         var company = req.body.company;
         var isloved = req.body.isloved;
         var userID = req.session.passport.user;
@@ -68,7 +68,7 @@ router.route('/')
             name : name,
             category : category,
             badge : badge,
-            dob : dob,
+            //dob : dob,
             user: userID,
             isloved : isloved
         }, function (err, fonkapp) {
@@ -140,12 +140,12 @@ router.route('/:id')
                 console.log('GET Error: There was a problem retrieving: ' + err);
             } else {
                 console.log('GET Retrieving ID: ' + fonkapp._id);
-                var fonkappdob = fonkapp.dob.toISOString();
-                fonkappdob = fonkappdob.substring(0, fonkappdob.indexOf('T'))
+                //var fonkappdob = fonkapp.dob.toISOString();
+                //fonkappdob = fonkappdob.substring(0, fonkappdob.indexOf('T'))
                 res.format({
                     html: function(){
                         res.render('fonkapps/show', {
-                            "fonkappdob" : fonkappdob,
+                            //"fonkappdob" : fonkappdob,
                             "fonkapp" : fonkapp
                         });
                     },
@@ -167,14 +167,14 @@ router.get('/:id/edit', isAuthenticated,  function(req, res) {
             //Return the fonkapp
             console.log('GET Retrieving ID: ' + fonkapp._id);
             //format the date properly for the value to show correctly in our edit form
-            var fonkappdob = fonkapp.dob.toISOString();
-            fonkappdob = fonkappdob.substring(0, fonkappdob.indexOf('T'))
+            //var fonkappdob = fonkapp.dob.toISOString();
+            //fonkappdob = fonkappdob.substring(0, fonkappdob.indexOf('T'))
             res.format({
                 //HTML response will render the 'edit.jade' template
                 html: function(){
                     res.render('fonkapps/edit', {
                         title: 'Fonkapp' + fonkapp._id,
-                        "fonkappdob" : fonkapp,
+                        //"fonkappdob" : fonkapp,
                         "fonkapp" : fonkapp
                     });
                 },
@@ -193,7 +193,7 @@ router.put('/:id/edit', isAuthenticated,  function(req, res) {
     var name = req.body.name;
     var category = req.body.category;
     var badge = req.body.badge;
-    var dob = req.body.dob;
+    //var dob = req.body.dob;
     var company = req.body.company;
     var isloved = req.body.isloved;
     var userID = req.session.passport.user;
@@ -205,7 +205,7 @@ router.put('/:id/edit', isAuthenticated,  function(req, res) {
             name : name,
             category : category,
             badge : badge,
-            dob : dob,
+            //dob : dob,
             user: userID,
             isloved : isloved
         }, function (err, fonkappID) {
