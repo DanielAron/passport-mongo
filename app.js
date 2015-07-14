@@ -5,10 +5,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var dbConfig = require('./db');
-var mongoose = require('mongoose');
 // Connect to DB
-mongoose.connect(dbConfig.url);
+var dbConfig = require('./db');
+//var mongoose = require('mongoose');
+//mongoose.connect(dbConfig.url);
+
+//Load entities
+var fonkapp = require('./models/fonkapps');
+
+//Load controllers
+var fonkapps = require('./routes/fonkapps');
+
 
 var app = express();
 
@@ -31,10 +38,11 @@ app.use(expressSession({secret: 'mySecretKey'}));
 app.use(passport.initialize());
 app.use(passport.session());
 
- // Using the flash middleware provided by connect-flash to store messages in session
- // and displaying in templates
+// Using the flash middleware provided by connect-flash to store messages in session
+// and displaying in templates
 var flash = require('connect-flash');
 app.use(flash());
+
 
 // Initialize Passport
 var initPassport = require('./passport/init');
@@ -42,8 +50,10 @@ initPassport(passport);
 
 var routes = require('./routes/index')(passport);
 app.use('/', routes);
+app.use('/fonkapps', fonkapps);
 
-/// catch 404 and forward to error handler
+
+// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;

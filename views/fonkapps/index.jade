@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    ul
+        - each fonkapp, i in fonkapps
+            h2
+                = fonkapp.name
+            div
+                |User:
+                = fonkapp.user
+            div
+                |Category:
+                = fonkapp.category
+            li
+                = fonkapp.badge
+                = fonkapp.dob
+                = fonkapp.isloved
+                = fonkapp._id
+                form(action='/fonkapps/#{fonkapp._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p 
+                    a(href='/fonkapps/#{fonkapp._id}/edit') Edit
+                p
+                    a(href='/fonkapps/#{fonkapp._id}') Show
