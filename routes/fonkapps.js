@@ -58,19 +58,24 @@ router.route('/')
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
         var name = req.body.name;
         var category = req.body.category;
-        var badge = req.body.badge;
-        //var dob = req.body.dob;
         var company = req.body.company;
-        var isloved = req.body.isloved;
+        var flickr = req.body.flickr;
+        var mcdevcode = req.body.mcdevcode;
+        var addsense = req.body.addsense;
+        //var isloved = req.body.isloved;
         var userID = req.session.passport.user;
         //call the create function for our database
         mongoose.model('Fonkapp').create({
             name : name,
             category : category,
-            badge : badge,
+            company : company,
+            flickr : flickr,
+            mcdevcode : mcdevcode,
+            addsense : addsense,
+            //badge : badge,
             //dob : dob,
-            user: userID,
-            isloved : isloved
+            user: userID
+            //isloved : isloved
         }, function (err, fonkapp) {
             if (err) {
                 res.send("There was a problem adding the information to the database.");
@@ -192,10 +197,11 @@ router.put('/:id/edit', isAuthenticated,  function(req, res) {
     // Get our REST or form values. These rely on the "name" attributes
     var name = req.body.name;
     var category = req.body.category;
-    var badge = req.body.badge;
-    //var dob = req.body.dob;
     var company = req.body.company;
-    var isloved = req.body.isloved;
+    var flickr = req.body.flickr;
+    var mcdevcode = req.body.mcdevcode;
+    var addsense = req.body.addsense;
+    //var isloved = req.body.isloved;
     var userID = req.session.passport.user;
 
     //find the document by ID
@@ -204,10 +210,14 @@ router.put('/:id/edit', isAuthenticated,  function(req, res) {
         fonkapp.update({
             name : name,
             category : category,
-            badge : badge,
+            company : company,
+            flickr : flickr,
+            mcdevcode : mcdevcode,
+            addsense : addsense,
+            //badge : badge,
             //dob : dob,
-            user: userID,
-            isloved : isloved
+            user: userID
+            //isloved : isloved
         }, function (err, fonkappID) {
             if (err) {
                 res.send("There was a problem updating the information to the database: " + err);

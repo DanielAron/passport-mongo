@@ -2,9 +2,12 @@ var mongoose = require('mongoose');
 var fonkappSchema = new mongoose.Schema({
     name: String,
     category: String,
-    badge: Number,
+    company: String,
+    flickr: String,
+    mcdevcode: String,
+    addsense: String,
     user: String,
-    //dob: { type: Date, default: Date.now },
-    isloved: Boolean
+    apkurl: String,
+    weburl: String
 });
 mongoose.model('Fonkapp', fonkappSchema);

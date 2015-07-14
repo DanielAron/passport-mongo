@@ -8,12 +8,16 @@ block content
 			input#inputName(type='text', value='#{fonkapp.name}', name='name')
 		p Category:
 			input#inputName(type='text', value='#{fonkapp.category}', name='category')
-		p Badge:
-			input#inputBadge(type='number', value='#{fonkapp.badge}', name='badge')
-		//p DOB:
-		//	input#inputDob(type='date', value='#{fonkappdob}', name='dob')
-		p Are you Loved?:
-			input#inputIsLoved(type='checkbox', name='isloved', checked=('#{fonkapp.isloved}'==='true' ? "checked" : undefined))
+		p Company Path:
+			input#inputName(type='text', value='#{fonkapp.company}', name='company')
+		p Flickr ID:
+			input#inputName(type='text', value='#{fonkapp.flickr}', name='flickr')
+		p MC dev code:
+			input#inputName(type='text', value='#{fonkapp.mcdevcode}', name='mcdevcode')
+		p Add Sense:
+			input#inputName(type='text', value='#{fonkapp.addsense}', name='addsense')
+		p Category:
+			input#inputName(type='text', value='#{fonkapp.category}', name='category')
 		p
 			input(type='hidden',value='PUT',name='_method')
 		p
