@@ -15,7 +15,7 @@ This repository serves as an example of a basic Node.js application which is usi
 Steps to run the app
 =====================
 * After cloning the repo, install the dependencies by running **npm install**
-* To start the server, run **npm start** on the base directory
+* To start the server, run **npm start** on the base directory.
 
 Perquisites
 ============
